@@ -13,12 +13,13 @@ class Lukija
     File.readlines(@file).each do |line|
       erotus = line.split
       paiva = erotus[0].reverse.insert(2, '02').reverse
-      paivat.push(paiva)
+      paivat.push(Date.parse(paiva).to_s)
       tunteja += erotus[1].chop.to_i
       kirjauksia += 1
     end
     ka = tunteja.to_f / kirjauksia
-    paivat.sort
+    paivat.sort!
+    print paivat
     ekap = Date.parse(paivat.first).to_s
     vikap = Date.parse(paivat.last).to_s
     hashi = {:yhteensa => tunteja, :keskiarvo => ka, :alku => ekap, :loppu => vikap}
