@@ -1,5 +1,5 @@
 RSpec.describe 'luokka Lukija' do
-
+require 'date'
   it "on määritelty oikeassa tiedostossa" do
     expect(File.exists? './lukija.rb' ).to be true
     require './lukija.rb'
